@@ -156,10 +156,9 @@ fclose(file_Output_Signal_1);
 % hold
 
 
-plot(FFT_out_HDL, 'b')
-hold
-plot(FFT_out_sig(1:end), 'r')
-hold
+plot(FFT_out_HDL, 'b', 'LineWidth', 1.2, 'DisplayName', 'HDL');
+hold on;
+plot(FFT_out_sig(1:end), 'r', 'LineWidth', 1.2, 'DisplayName', 'MATLAB');
 
 % plot(FFT_Re_HDL, 'b')
 % hold
@@ -171,27 +170,6 @@ hold
 % plot(FFT_Re_sig, 'r')
 % hold
 
-%%
-N = 128;
 
-% مقایسه فریم اول
-FFT_HDL_frame1 = FFT_Re_HDL(1:N);
-FFT_Matlab_frame1 = FFT_Re_sig(1:N);
 
-figure;
-plot(FFT_HDL_frame1, 'b'); hold on;
-plot(FFT_Matlab_frame1, 'r');
-legend('HDL', 'MATLAB');
-title('FFT Real - Frame 1');
-grid on;
 
-%%
-figure
-subplot(2,1,1);
-plot(Output_Signal_1_14bit);
-hold;
-plot(floor(node4*2^14),'--r');
-title('Signed Output\_Signal\_1\_15bit');
-subplot(2,1,2);
-plot(floor(node4(1:Samples_N)*2^14)- Output_Signal_1_14bit(1:Samples_N));
-title('MatlabFixed minus VHDL');
