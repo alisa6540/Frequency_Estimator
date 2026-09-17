@@ -1,0 +1,63 @@
+# ==========================================
+# Vivado
+# ==========================================
+
+.cache/
+.hw/
+.ip_user_files/
+.sim/
+.xsim/
+.gen/
+.hw_emu/
+.build/
+
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+
+*.bit
+*.bin
+*.ltx
+*.dcp
+
+*.tmp
+*.bak
+*.swp
+
+# Vivado backups
+*.backup
+
+
+# ==========================================
+# MATLAB
+# ==========================================
+
+# MATLAB autosave
+*.asv
+
+# MATLAB generated code/cache
+codegen/
+slprj/
+sccprj/
+
+# Simulink cache
+*.slxc
+
+# MATLAB preferences/history
+matlab.prf
+
+# Temporary MATLAB files
+*.mex*
+*.p
+
+
+# ==========================================
+# OS
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
