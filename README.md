@@ -198,8 +198,9 @@ To obtain the **actual frequency in MHz**, the value must be **shifted right by 
 
 **Example:**
 
-HDL output: 5574623
-Actual freq: 5574623 / 32768 = 170.12 MHz
+HDL output:     5574623
+
+Actual freq:    5574623 / 32768 = 170.12 MHz
 
 ## 🚀 Quick Start
 
