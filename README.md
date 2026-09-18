@@ -145,6 +145,61 @@ The verified algorithm is implemented in **synthesizable VHDL** using Xilinx IP 
 - **BRAM**: 0.003 W (1%)
 
 ---
+## 📊 MATLAB vs VHDL FFT Comparison
+
+The following plot compares the FFT output from the VHDL implementation with the MATLAB reference model:
+
+<p align="center">
+  <img src="doc/MATLAB_HDL_compare.png" alt="MATLAB vs HDL FFT Comparison" width="900">
+</p>
+
+### Result
+
+As shown in the plot, the **HDL output (blue)** and **MATLAB output (red)** are **perfectly aligned** (overlapping). This confirms that:
+
+✅ The VHDL implementation is **bit-accurate** with the MATLAB reference model
+✅ The fixed-point quantization is **correctly implemented**
+✅ The FFT IP core configuration is **correct**
+✅ The CORDIC amplitude calculation is **accurate**
+
+### Legend
+
+| Color | Description |
+|:---|:---|
+| **Blue** | HDL (VHDL simulation output) |
+| **Red** | MATLAB (quantized reference model) |
+
+The **overlap** of the two curves demonstrates the correctness of the implementation.
+
+## 📊 VHDL Simulation Results
+
+The following waveform shows the behavior of the system during simulation:
+
+<p align="center">
+  <img src="doc/HDL_OUT.png" alt="HDL Simulation Waveform" width="900">
+</p>
+
+### Signal Description
+
+| Signal | Description | Value |
+|:---|:---|:---|
+| **Clock** | System clock (128 MHz) | - |
+| **IF_Input[13:0]** | Input IF signal (14-bit) | - |
+| **baseband_signal[13:0]** | Envelope `√(I² + Q²)` after LPF | - |
+| **FFT_Amp[21:0]** | FFT magnitude from CORDIC | - |
+| **Signal_I_dem[13:0]** | I component after IQ demodulation | - |
+| **Signal_Q_dem[13:0]** | Q component after IQ demodulation | - |
+| **Frequency[23:0]** | Estimated frequency (fix24_15) | - |
+
+### Important Note: Frequency Format
+
+The `Frequency` output is in **fix24_15** format (15 fractional bits).
+To obtain the **actual frequency in MHz**, the value must be **shifted right by 15 bits** (divided by 2¹⁵ = 32768).
+
+**Example:**
+
+HDL output: 5574623
+Actual freq: 5574623 / 32768 = 170.12 MHz
 
 ## 🚀 Quick Start
 
