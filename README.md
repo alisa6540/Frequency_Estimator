@@ -56,31 +56,6 @@ The system is first modeled in **MATLAB/Simulink** with **fixed-point quantizati
   <img src="doc/simulink.png" alt="Simulink Model" width="900">
 </p>
 
-### Model Components
-
-| Block | Description |
-|:---|:---|
-| **IQ Demodulator** | Multiplies IF by cos/sin at 32 MHz |
-| **Low-Pass Filter** | 5th-order IIR Butterworth filter |
-| **Amplitude (SQRT)** | Computes `√(I² + Q²)` |
-| **Noise Mean** | Low-pass filter for noise estimation |
-| **Threshold** | Adaptive threshold = Noise Mean × 0.5 |
-| **FFT** | 128-point FFT with no scaling |
-| **Amplitude (SQRT)** | CORDIC-based magnitude |
-| **Max & Interpolation** | Parabolic interpolation |
-
-### Parabolic Interpolation
-
-The exact frequency is calculated using:
-
-
-Where:
-- `a` = magnitude at bin `k-1`
-- `b` = magnitude at bin `k` (peak)
-- `c` = magnitude at bin `k+1`
-- `k` = index of maximum magnitude
-- `fs/N` = 1 MHz (frequency resolution)
-
 ---
 
 ## 💻 VHDL Implementation
