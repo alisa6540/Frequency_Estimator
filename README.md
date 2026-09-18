@@ -209,5 +209,5 @@ Actual freq:    5574623 / 32768 = 170.12 MHz
 - **Xilinx Vivado** 2023.x or later
 - **MATLAB** R2023a or later (for reference model)
 
-### 1. Clone the Repository
+
 
